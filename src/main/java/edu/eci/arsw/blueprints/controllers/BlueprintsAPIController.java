@@ -5,6 +5,7 @@ import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.services.BlueprintsServices;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/blueprints")
+@RequestMapping("/api/v1/blueprints")
 public class BlueprintsAPIController {
 
     private final BlueprintsServices services;
@@ -24,12 +25,16 @@ public class BlueprintsAPIController {
 
     // GET /blueprints
     @GetMapping
+    @ApiResponse(responseCode = "200" , description = "consultas exitosa")
+    @ApiResponse (responseCode = "404" , description = "recurso inexistente o no se encuentra la data solicitada")
     public ResponseEntity<Set<Blueprint>> getAll() {
         return ResponseEntity.ok(services.getAllBlueprints());
     }
 
     // GET /blueprints/{author}
-    @GetMapping("/{author}")
+    @GetMapping ("/blueprints/{author}")
+    @ApiResponse (responseCode = "200" , description = "consultas exitosa")
+    @ApiResponse (responseCode = "404" , description = "recurso inexistente o no se encuentra la data solicitada")
     public ResponseEntity<?> byAuthor(@PathVariable String author) {
         try {
             return ResponseEntity.ok(services.getBlueprintsByAuthor(author));
@@ -40,6 +45,8 @@ public class BlueprintsAPIController {
 
     // GET /blueprints/{author}/{bpname}
     @GetMapping("/{author}/{bpname}")
+    @ApiResponse (responseCode = "200" , description = "consultas exitosa")
+    @ApiResponse (responseCode = "404" , description = "recurso inexistente o no se encuentra la data solicitada")
     public ResponseEntity<?> byAuthorAndName(@PathVariable String author, @PathVariable String bpname) {
         try {
             return ResponseEntity.ok(services.getBlueprint(author, bpname));
@@ -50,13 +57,15 @@ public class BlueprintsAPIController {
 
     // POST /blueprints
     @PostMapping
+    @ApiResponse(responseCode = "202" , description = "creación")
+    @ApiResponse (responseCode = "404" , description = "recurso inexistente o no se encuentra la data solicitada")
     public ResponseEntity<?> add(@Valid @RequestBody NewBlueprintRequest req) {
         try {
             Blueprint bp = new Blueprint(req.author(), req.name(), req.points());
             services.addNewBlueprint(bp);
-            return ResponseEntity.status(HttpStatus.CREATED).build();
+            return ResponseEntity.status(HttpStatus.CREATED).build().body(Map.of("202", ApiResponse.getMessage()));
         } catch (BlueprintPersistenceException e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("error", e.getMessage()));
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("404", e.getMessage()));
         }
     }
 

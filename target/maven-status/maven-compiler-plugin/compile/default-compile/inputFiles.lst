@@ -1,0 +1,15 @@
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\BlueprintsApplication.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\config\ApiResponse.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\config\OpenApiConfig.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\controllers\BlueprintsAPIController.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\filters\BlueprintsFilter.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\filters\IdentityFilter.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\filters\RedundancyFilter.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\filters\UndersamplingFilter.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\model\Blueprint.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\model\Point.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\persistence\BlueprintNotFoundException.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\persistence\BlueprintPersistence.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\persistence\BlueprintPersistenceException.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\persistence\InMemoryBlueprintPersistence.java
+C:\Users\ju.torres\Desktop\ARSW_PARCIAL_T2\src\main\java\edu\eci\arsw\blueprints\services\BlueprintsServices.java
